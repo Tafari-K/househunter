@@ -11,6 +11,11 @@ class Post(models.Model):
                                related_name='posts')
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=((0, 'Draft'), (1, 'Published')), default=0)
+    updated_on = models.DateTimeField(auto_now=True)
+    excerpt = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ['-created_on']
 
     def __str__(self):
-        return self.title
+        return f"The title of this post is {self.title} | posted by {self.author.username}"
