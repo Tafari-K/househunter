@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
 <!-- index.html content starts here -->
 <div class="container-fluid">
@@ -9,6 +11,7 @@
                 {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
+                        <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="{{ post.title }}">
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
@@ -47,5 +50,7 @@
     </nav>
     {% endif %}
 </div>
+<!-- index.html content ends here -->
+
 <!-- index.html content ends here -->
 {% endblock %}
