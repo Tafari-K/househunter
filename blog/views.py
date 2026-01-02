@@ -1,7 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.views import generic
+from .models import Post
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Welcome to HomeHunter Index Page")
+
+
+class PostList(generic.ListView):
+    model = Post
+    """
+    View to list all the blog posts.
+    """
+    queryset = Post.objects.filter(status=1)
+    template_name = "blog/index.html"
+    paginate_by = 6
