@@ -75,12 +75,16 @@
                     <span class="comment-date">{{ comment.created_on|date:"M d, Y, g:i a" }}</span>
                 </div>
                 <div class="comment-body">
-                    {{ comment.body }}
+                    {{ comment.content }}
                 </div>
                 {% if not comment.approved %}
                 <p class="comment-approval-notice">
                     <i class="fas fa-clock"></i> This comment is awaiting approval
                 </p>
+                {% endif %}
+                {% if user.is_authenticated and comment.author == user %}
+                <button class="btn btn-edit"
+                    comment_id="{{ comment.content }}">Edit</button>
                 {% endif %}
             </div>
             {% empty %}
@@ -97,12 +101,12 @@
             {% if user.is_authenticated %}
             <p class="posting-as">Posting as: <strong>{{ user.username }}</strong></p>
             
-            <form method="post" class="comment-form">
-                {% csrf_token %}
-                {{ comment_form|crispy }}
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Submit Comment
-                </button>
+            <form id="commentForm" method="post" class="comment-form">
+            {% csrf_token %}
+            {{ comment_form|crispy }}
+            <button id="submitButton" type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Submit Comment
+            </button>
             </form>
             {% else %}
             <div class="login-prompt">
@@ -114,3 +118,7 @@
 </div>
 
 {% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
