@@ -36,6 +36,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                <p class="text-end m-3">You are logged in as {{ user.username }}</p>
+                {% else %}
+                <p class="text-end m-3">You are not logged in</p>
+                {% endif %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
@@ -47,25 +52,8 @@
                         <a class="nav-link" href="#">Blog</a>
                     </li>
                 </ul>
-                {# ========================= #}
-                {# AUTH STATUS MESSAGE #}
-                {# ========================= #}
-
-                {% if user.is_authenticated %}
-                <p class="text-end m-3">You are logged in as {{ user.username }}</p>
-                {% else %}
-                <p class="text-end m-3">You are not logged in</p>
-                {% endif %}
-
-
-                {# ========================= #}
-                {# NAVIGATION ITEMS #}
-                {# ========================= #}
-
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
                 {% if user.is_authenticated %}
-
                     <li class="nav-item">
                     <a class="nav-link
                         {% if request.path == logout_url %}active{% endif %}"
@@ -73,9 +61,7 @@
                         Logout
                     </a>
                     </li>
-
                 {% else %}
-
                     <li class="nav-item">
                     <a class="nav-link
                         {% if request.path == signup_url %}active{% endif %}"
@@ -83,7 +69,6 @@
                         Register
                     </a>
                     </li>
-
                     <li class="nav-item">
                     <a class="nav-link
                         {% if request.path == login_url %}active{% endif %}"
@@ -91,9 +76,7 @@
                         Login
                     </a>
                     </li>
-
                 {% endif %}
-
                 </ul>
             </div>
         </div>
