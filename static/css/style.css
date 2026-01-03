@@ -556,6 +556,73 @@ nav[aria-label="Page navigation"] {
 }
 
 
+/* ===============================
+   ABOUT PAGE
+   =============================== */
+
+/* Main container spacing + card feel */
+.container.mt-5 {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Image styling */
+.container.mt-5 img {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    max-width: 100%;
+    height: auto;
+}
+
+/* Title */
+.container.mt-5 h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Content text */
+.container.mt-5 p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+/* Updated-on text */
+.container.mt-5 .text-end em {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Row spacing */
+.container.mt-5 .row + .row {
+    margin-top: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container.mt-5 {
+        padding: 1.75rem;
+    }
+
+    .container.mt-5 .col-4,
+    .container.mt-5 .col-8 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container.mt-5 h2 {
+        margin-top: 1.25rem;
+        font-size: 1.6rem;
+    }
+}
+
+
 
 /* ========================================
    FOOTER
