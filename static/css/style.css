@@ -254,7 +254,8 @@ nav[aria-label="Page navigation"] {
 
 .post-detail-image {
     width: 100%;
-    height: 200px;
+    height: 3200px;
+    display: block;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: var(--shadow-md);
@@ -520,11 +521,13 @@ button:focus,
 @media (max-width: 1024px) {
     .post-title { font-size: 2.1rem; }
     .post-content { padding: 2rem; }
+    .post-detail-image { height: 280px; }
 }
 
 @media (max-width: 768px) {
     .navbar-text { display: none; }
     main { padding: 1rem 0; }
+    .post-detail-image { height: 240px; }
     .post-title { font-size: 1.8rem; }
     .post-content { padding: 1.5rem; }
     .post-detail-image { height: 230px; }
@@ -542,12 +545,14 @@ button:focus,
 }
 
 @media (max-width: 375px) {
+    .post-detail-image { height: 200px; }
     .post-title { font-size: 1.6rem; }
     .section-title { font-size: 1.5rem; }
     .comment-form textarea { min-height: 200px; }
 }
 
 @media (max-width: 320px) {
+    .post-detail-image { height: 180px; }
     .navbar-brand { font-size: 1.1rem; }
     .post-content { padding: 1.25rem; }
     .comment-form textarea { min-height: 180px; }
