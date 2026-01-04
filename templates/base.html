@@ -35,50 +35,32 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                        <span class="navbar-text text-muted">You are logged in as {{ user.username }}</span>
+                        <li class="nav-item me-lg-3">
+                        <span class="navbar-text text-muted">
+                            You are logged in as {{ user.username }}
+                        </span>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'account_logout' %}">
+                            Logout
+                        </a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">
+                            Login
+                        </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}">
+                            Register
+                        </a>
                         </li>
                     {% endif %}
                     </ul>
 
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                    <a class="nav-link
-                        {% if request.path == logout_url %}active{% endif %}"
-                        href="{% url 'account_logout' %}">
-                        Logout
-                    </a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                    <a class="nav-link
-                        {% if request.path == signup_url %}active{% endif %}"
-                        href="{% url 'account_signup' %}">
-                        Register
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link
-                        {% if request.path == login_url %}active{% endif %}"
-                        href="{% url 'account_login' %}">
-                        Login
-                    </a>
-                    </li>
-                {% endif %}
-                </ul>
             </div>
         </div>
     </nav>
