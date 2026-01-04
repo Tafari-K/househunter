@@ -33,26 +33,37 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{{ home_url }}">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ home_url }}">Blog</a>
+                </li>
+            </ul>
+
             <ul class="navbar-nav ms-auto align-items-lg-center">
                 {% if user.is_authenticated %}
-                    <li class="nav-item me-lg-3">
-                        <span class="navbar-text text-muted">
-                            You are logged in as {{ user.username }}
-                        </span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ logout_url }}">Logout</a>
-                    </li>
+                <li class="nav-item me-lg-3">
+                    <span class="navbar-text text-muted">You are logged in as {{ user.username }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ logout_url }}">Logout</a>
+                </li>
                 {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ login_url }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ signup_url }}">Register</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ login_url }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ signup_url }}">Register</a>
+                </li>
                 {% endif %}
             </ul>
         </div>
+
     </div>
 </nav>
 
