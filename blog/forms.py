@@ -1,5 +1,6 @@
 from .models import Comment
 from django import forms
+from allauth.account.forms import SignupForm
 
 
 class CommentForm(forms.ModelForm):
@@ -12,3 +13,12 @@ class CommentForm(forms.ModelForm):
         """
         model = Comment
         fields = ('content',)
+
+
+class CustomSignupForm(SignupForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields["password1"].help_text = ""
+        self.fields["password2"].help_text = ""
