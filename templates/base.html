@@ -35,13 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{{ home_url }}">Home</a>
+                <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{{ home_url }}" aria-label="home">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a>
+                <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}" aria-label="about">About</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{{ home_url }}">Blog</a>
+                <a class="nav-link" href="{{ underconstruction_url }}" aria-label="blog">Blog</a>
                 </li>
             </ul>
 
@@ -51,14 +51,14 @@
                     <span class="navbar-text text-muted">You are logged in as {{ user.username }}</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ logout_url }}">Logout</a>
+                    <a class="nav-link" href="{{ logout_url }}" aria-label="logout">Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ login_url }}">Login</a>
+                    <a class="nav-link" href="{{ login_url }}" aria-label="login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ signup_url }}">Register</a>
+                    <a class="nav-link" href="{{ signup_url }}" aria-label="register">Register</a>
                 </li>
                 {% endif %}
             </ul>
@@ -81,7 +81,9 @@
 </div>
 
 <main class="flex-shrink-0 main-bg">
-    {% block content %}{% endblock %}
+    {% block content %}
+    <h1 class="visually-hidden">HouseHunters Blog</h1>
+    {% endblock %}
 </main>
 
 <footer class="footer mt-auto py-3 dark-bg">
@@ -90,10 +92,10 @@
     </p>
     <p class="m-0 text-center text-white">
         Follow us:
-        <a href="https://www.facebook.com/"><i class="fab fa-facebook-square ms-3"></i></a>
-        <a href="https://www.twitter.com/"><i class="fab fa-twitter-square ms-3"></i></a>
-        <a href="https://www.instagram.com/"><i class="fab fa-instagram-square ms-3"></i></a>
-        <a href="https://www.youtube.com/"><i class="fab fa-youtube-square ms-3"></i></a>
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook-square ms-3" aria-label="Facebook"></i></a>
+        <a href="https://www.twitter.com/"><i class="fab fa-twitter-square ms-3" aria-label="Twitter"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-instagram-square ms-3" aria-label="Instagram"></i></a>
+        <a href="https://www.youtube.com/"><i class="fab fa-youtube-square ms-3" aria-label="YouTube"></i></a>
     </p>
     <p class="m-0 text-center text-white mt-2" style="font-size:0.85rem;">
         © 2024 HouseHunters. All rights reserved.
