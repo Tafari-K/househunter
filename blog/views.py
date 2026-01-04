@@ -91,3 +91,9 @@ def comment_delete(request, slug, comment_id):
                              'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+def under_construction(request):
+    """
+    View to display an under construction page.
+    """
+    return render(request, 'under_construction.html')
