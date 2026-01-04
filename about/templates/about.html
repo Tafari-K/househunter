@@ -10,7 +10,7 @@
         </div>
         <div class="col-8">
             <!-- Title -->
-            <h2> {{ about.title }} </h2>
+            <h2> {{ about.title | default:"About HouseHunters" }} </h2>
             <!-- Content -->
             <p> {{ about.content|safe }} </p>
         </div>
