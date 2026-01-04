@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib import messages
 from django.views import generic
 from django.http import HttpResponseRedirect
+from django.core.exceptions import PermissionDenied
 from .models import Post, Comment
 from .forms import CommentForm
+
 
 
 # Create your views here.
@@ -92,8 +94,17 @@ def comment_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 def under_construction(request):
     """
     View to display an under construction page.
     """
     return render(request, 'under_construction.html')
+
+
+def admin_only_view(request):
+    """
+    View to restrict access to admin users only.
+    """
+    if not request.user.is_staff:
+        raise PermissionDenied
