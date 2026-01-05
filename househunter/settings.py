@@ -93,6 +93,21 @@ TEMPLATES = [
     },
 ]
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('drk5a3mpf'),
+    'API_KEY': os.environ.get('337167813735684'),
+    'API_SECRET': os.environ.get('CjE3ra4X8LO2yr-KfAoZqW2tHjak'),
+}
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
+
 WSGI_APPLICATION = 'househunter.wsgi.application'
 
 
