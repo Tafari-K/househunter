@@ -13,14 +13,18 @@ class Post(models.Model):
                                related_name='posts')
     featured_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=((0, 'Draft'), (1, 'Published')), default=0)
+    status = models.IntegerField(choices=((0, 'Draft'),
+                                          (1, 'Published')), default=0)
     updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
-        return f"The title of this post is {self.title} | posted by {self.author}"
+        return (
+            f"The title of this post is {self.title} | "
+            f"posted by {self.author}"
+        )
 
 
 class Comment(models.Model):
