@@ -12,11 +12,15 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
     
-    def formfield_for_dbfield(self, db_field, request, **kwargs):
-        # Fix for Summernote permission issue
+    def has_add_permission(self, request):
         if request is None:
-            return super().formfield_for_dbfield(db_field, None, **kwargs)
-        return super().formfield_for_dbfield(db_field, request, **kwargs)
+            return False
+        return super().has_add_permission(request)
+    
+    def has_change_permission(self, request, obj=None):
+        if request is None:
+            return False
+        return super().has_change_permission(request, obj)
 
 
 admin.site.register(Comment)
