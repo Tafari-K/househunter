@@ -11,8 +11,11 @@
         {% for post in post_list %}
           <div class="col-md-4">
             <div class="card mb-4">
-              <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="{{ post.title }}">
-
+              {% if post.featured_image and "placeholder" not in post.featured_image.url %}
+                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+              {% else %}
+                <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="{{ post.title }}">
+              {% endif %}
               <div class="card-body">
                 <div class="image-container">
                   {% if "placeholder" in post.featured_image.url %}

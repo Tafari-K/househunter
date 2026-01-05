@@ -7,7 +7,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <img src="{% static 'images/default.jpg' %}" class="post-detail-image" alt="{{ post.title }}">
+                {% if post.featured_image and "placeholder" not in post.featured_image.url %}
+                <img class="post-detail-image" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                {% else %}
+                <img class="post-detail-image" src="{% static 'images/default.jpg' %}" alt="{{ post.title }}">
+                {% endif %}
             </div>
         </div>
     </div>
