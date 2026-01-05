@@ -22,6 +22,7 @@ urlpatterns = [
     path('about/', about_views.about, name='about'),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
+    path('cloudinary/', include('cloudinary_storage.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('', include("blog.urls"), name="blogs-urls"),
 ]
