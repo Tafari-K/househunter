@@ -1,1 +1,18 @@
+# Environment variables
+.env
+
+# Django secrets
+settings.py
+settings_local.py
+
+# Database
+db.sqlite3
 blog/fixtures
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+env/
